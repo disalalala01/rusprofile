@@ -32,7 +32,7 @@ def get_json(url):
 
 def get_main_page_url(url):
     if url:
-        id = url.split('/')[2]
+        id = url.split('/rusprofile_api')[2]
         return f'https://www.rusprofile.ru/founders/{id}?filter=org_foreign'
     return None
 
@@ -131,4 +131,4 @@ def main():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port='5001',debug=True)
