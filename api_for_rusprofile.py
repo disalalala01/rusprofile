@@ -112,7 +112,7 @@ def get_page_data(html, id):
 
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/rusprofile_api', methods=['GET', 'POST'])
 def main():
 
     inn = request.json['inn']
