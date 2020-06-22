@@ -110,12 +110,11 @@ def get_page_data(html, id):
         return { 'status': True ,'okpo': okpo ,'name': com_name ,'content': alims }
     return {'status': False, 'okpo': okpo,'name': com_name ,'content': None }
 
-
-
-@app.route('/rusprofile_api', methods=['GET', 'POST'])
+@app.route('/inn/', methods=['GET','POST'])
 def main():
 
-    inn = request.json['inn']
+    inn = request.json['key']
+
 
     main_url = f'https://www.rusprofile.ru/ajax.php?&query={inn}&action=search'
 
@@ -128,6 +127,23 @@ def main():
     data = get_page_data(html, id)
 
     return data
+
+
+# @app.route('/inn/<inn>')
+# def main(inn):
+#
+#     main_url = f'https://www.rusprofile.ru/ajax.php?&query={inn}&action=search'
+#
+#     id = get_json(main_url)
+#
+#     url = get_main_page_url(id)
+#
+#     html = get_html(url)
+#
+#     data = get_page_data(html, id)
+#
+#     return data
+
 
 
 if __name__ == '__main__':

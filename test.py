@@ -116,7 +116,7 @@ app = Flask(__name__)
 
 
 
-@app.route('/inn/<inn>')
+@app.route('/rusprofile/<inn>')
 def index(inn):
 
     main_url = f'https://www.rusprofile.ru/ajax.php?&query={inn}&action=search'
@@ -138,4 +138,4 @@ def index(inn):
 
 if __name__ == '__main__':
 
-    app.run(debug=True)
+    app.run( port='5001' ,debug=True)
